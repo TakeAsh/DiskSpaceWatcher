@@ -102,18 +102,26 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="DiskSpaceWatcher.ico" />
+    <Content Include="Images\warning_88.png" />
     <None Include="Images\AddTo.png" />
     <Content Include="Files\ToastTemplate.xml" />
     <Content Include="Images\caution.ico" />
     <None Include="Images\caution.png" />
     <None Include="Images\caution_20.png" />
+    <Content Include="Images\caution_88.png" />
     <Content Include="Images\DiskSpaceWatcher.ico" />
+    <Content Include="Images\DiskSpaceWatcher.png" />
+    <Content Include="Images\DiskSpaceWatcher_88.png" />
     <Content Include="Images\ok.ico" />
     <None Include="Images\ok_20.png" />
     <None Include="Images\Setting.png" />
     <None Include="Images\SignOut.png" />
     <None Include="Images\RemoveFrom.png" />
+    <Content Include="Images\ok.png" />
+    <Content Include="Images\ok_88.png" />
     <Content Include="Images\unavailable.ico" />
+    <Content Include="Images\unavailable.png" />
+    <Content Include="Images\unavailable_88.png" />
     <Content Include="Images\warning.ico" />
     <None Include="Images\warning.png" />
     <None Include="Images\warning_20.png" />
