@@ -1,0 +1,10 @@
+﻿<toast>
+  <visual>
+    <binding template='ToastGeneric'>
+      <image id='1' src=''/>
+      <text id='1'></text>
+      <text id='2'></text>
+    </binding>
+  </visual>
+  <audio src='ms-winsoundevent:Notification.Default' loop='false'/>
+</toast>
