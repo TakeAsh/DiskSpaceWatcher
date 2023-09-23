@@ -1,5 +1,5 @@
 # DiskSpaceWatcher
-- show drive information in nortification area, and notify when free space is few.
+- show drive information in notification area, and notify when free space is few.
 - ![ScreenShot](https://raw.githubusercontent.com/TakeAsh/DiskSpaceWatcher/master/images/ScreenShot.png)
 - ![ToastNotifcation](https://raw.githubusercontent.com/TakeAsh/DiskSpaceWatcher/master/images/ToastNotifcation.png)
 
