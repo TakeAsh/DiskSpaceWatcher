@@ -22,7 +22,9 @@ namespace DiskSpaceWatcher {
         public Targets Targets {
             get { return _targets; }
             set {
-                _targets = value;
+                _targets = value != null && value.Count > 0
+                    ? value
+                    : (_settings.Properties["Targets"].DefaultValue as string).ToTargets();
                 InitDialog();
                 InitIndicators();
                 var drives = String.Join(", ", _targets.Drives);
