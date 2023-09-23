@@ -69,9 +69,8 @@ namespace DiskSpaceWatcher {
             var drives = DriveInfo.GetDrives();
             _indicators.ForEach(indicator => {
                 var drive = drives.FirstOrDefault(d => d.Name.StartsWith(indicator.Drive));
-                if (drive == null) { return; }
                 indicator.Space =
-                    !drive.IsReady ? -1 :
+                    drive == null || !drive.IsReady ? -1 :
                     (int)(drive.AvailableFreeSpace / _gigaBytes);
             });
         }
