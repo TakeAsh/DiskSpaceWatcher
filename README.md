@@ -26,5 +26,5 @@
 1. close dialog by clicking up-right close button.
 
 ## Appendix
-- To show ToastNotification, this software needs registory settings `HKLM\SOFTWARE\Classes\AppUserModelId\TakeAsh.net.DiskSpaceWatcher` and folder `%LocalAppData%\TakeAsh.net`.
+- To show ToastNotification, this software needs registory settings `HKLM\SOFTWARE\Classes\AppUserModelId\TakeAsh.net.DiskSpaceWatcher` and folder `%LocalAppData%\TakeAsh.net\DiskSpaceWatcher`.
 - Watch interval is 30 seconds.
