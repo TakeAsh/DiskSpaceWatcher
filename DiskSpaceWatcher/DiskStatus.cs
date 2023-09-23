@@ -5,11 +5,11 @@ namespace DiskSpaceWatcher {
     public enum DiskStatus {
         [Description("－")]
         UNAVAILABLE,
-        [Description("○")]
+        [Description("\U0001F7E2")] // green circle
         OK,
-        [Description("⚠")]
+        [Description("\U0001F7E8")] // yellow square, "warning"(U+26A0 U+FE0F) is displayed as text
         CAUTION,
-        [Description("❎")]
+        [Description("\U0001F7E5")] // red square
         WARNING,
     }
 
