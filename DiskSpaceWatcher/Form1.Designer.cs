@@ -38,16 +38,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuItemSetting = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.menuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuitemGroupInstall = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuitemInstall = new System.Windows.Forms.ToolStripMenuItem();
             this.menuitemUninstall = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picture_Warning)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_Caution)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture_OK)).BeginInit();
@@ -82,7 +80,7 @@
             this.comboBoxWarning.FormattingEnabled = true;
             this.comboBoxWarning.Location = new System.Drawing.Point(32, 44);
             this.comboBoxWarning.Name = "comboBoxWarning";
-            this.comboBoxWarning.Size = new System.Drawing.Size(56, 20);
+            this.comboBoxWarning.Size = new System.Drawing.Size(88, 20);
             this.comboBoxWarning.TabIndex = 2;
             this.comboBoxWarning.SelectedIndexChanged += new System.EventHandler(this.comboBoxWarning_SelectedIndexChanged);
             // 
@@ -101,7 +99,7 @@
             this.comboBoxCaution.FormattingEnabled = true;
             this.comboBoxCaution.Location = new System.Drawing.Point(32, 96);
             this.comboBoxCaution.Name = "comboBoxCaution";
-            this.comboBoxCaution.Size = new System.Drawing.Size(56, 20);
+            this.comboBoxCaution.Size = new System.Drawing.Size(88, 20);
             this.comboBoxCaution.TabIndex = 4;
             this.comboBoxCaution.SelectedIndexChanged += new System.EventHandler(this.comboBoxCaution_SelectedIndexChanged);
             // 
@@ -160,8 +158,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.picture_Warning);
             this.groupBox2.Controls.Add(this.comboBoxWarning);
             this.groupBox2.Controls.Add(this.label2);
@@ -176,26 +172,6 @@
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thresholds";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("MS UI Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(94, 98);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 14);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "GB";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("MS UI Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.Location = new System.Drawing.Point(94, 46);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 14);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "GB";
             // 
             // contextMenu
             // 
@@ -213,22 +189,14 @@
             // 
             this.menuItemSetting.Image = global::DiskSpaceWatcher.Properties.Resources.Setting;
             this.menuItemSetting.Name = "menuItemSetting";
-            this.menuItemSetting.Size = new System.Drawing.Size(180, 22);
+            this.menuItemSetting.Size = new System.Drawing.Size(111, 22);
             this.menuItemSetting.Text = "&Setting";
             this.menuItemSetting.Click += new System.EventHandler(this.menuItemSetting_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
-            // 
-            // menuItemExit
-            // 
-            this.menuItemExit.Image = global::DiskSpaceWatcher.Properties.Resources.SignOut;
-            this.menuItemExit.Name = "menuItemExit";
-            this.menuItemExit.Size = new System.Drawing.Size(180, 22);
-            this.menuItemExit.Text = "&Exit";
-            this.menuItemExit.Click += new System.EventHandler(this.menuItemExit_Click);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(108, 6);
             // 
             // menuitemGroupInstall
             // 
@@ -240,16 +208,11 @@
             this.menuitemGroupInstall.Size = new System.Drawing.Size(111, 22);
             this.menuitemGroupInstall.Text = "&Install";
             // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 6);
-            // 
             // menuitemInstall
             // 
             this.menuitemInstall.Image = global::DiskSpaceWatcher.Properties.Resources.AddTo;
             this.menuitemInstall.Name = "menuitemInstall";
-            this.menuitemInstall.Size = new System.Drawing.Size(180, 22);
+            this.menuitemInstall.Size = new System.Drawing.Size(120, 22);
             this.menuitemInstall.Text = "&Install";
             this.menuitemInstall.Click += new System.EventHandler(this.menuitemInstall_Click);
             // 
@@ -257,9 +220,22 @@
             // 
             this.menuitemUninstall.Image = global::DiskSpaceWatcher.Properties.Resources.RemoveFrom;
             this.menuitemUninstall.Name = "menuitemUninstall";
-            this.menuitemUninstall.Size = new System.Drawing.Size(180, 22);
+            this.menuitemUninstall.Size = new System.Drawing.Size(120, 22);
             this.menuitemUninstall.Text = "&Uninstall";
             this.menuitemUninstall.Click += new System.EventHandler(this.menuitemUninstall_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(108, 6);
+            // 
+            // menuItemExit
+            // 
+            this.menuItemExit.Image = global::DiskSpaceWatcher.Properties.Resources.SignOut;
+            this.menuItemExit.Name = "menuItemExit";
+            this.menuItemExit.Size = new System.Drawing.Size(111, 22);
+            this.menuItemExit.Text = "&Exit";
+            this.menuItemExit.Click += new System.EventHandler(this.menuItemExit_Click);
             // 
             // Form1
             // 
@@ -301,8 +277,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ContextMenuStrip contextMenu;
         private System.Windows.Forms.ToolStripMenuItem menuItemSetting;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;

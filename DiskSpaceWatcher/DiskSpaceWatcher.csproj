@@ -73,6 +73,7 @@
     </Compile>
     <Compile Include="StringHelper.cs" />
     <Compile Include="Target.cs" />
+    <Compile Include="Threshold.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

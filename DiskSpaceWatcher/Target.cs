@@ -6,13 +6,13 @@ namespace DiskSpaceWatcher {
     public class Target : IComparable<Target> {
         private const string _separator = ";";
 
-        public string Drive { get; set; } = "C:";
+        public string Drive { get; set; } 
 
-        public int Warning { get; set; } = 50;
+        public long Warning { get; set; } 
 
-        public int Caution { get; set; } = 200;
+        public long Caution { get; set; } 
 
-        public Target(string drive, int warning, int caution) {
+        public Target(string drive, long warning, long caution) {
             Drive = drive;
             Warning = warning;
             Caution = caution;
@@ -24,8 +24,8 @@ namespace DiskSpaceWatcher {
                 .ToArray();
             if (items.Length < 3) { throw (new Exception($"Invalid source: {source}")); }
             Drive = items[0];
-            Warning = items[1].TryParse(50);
-            Caution = items[2].TryParse(200);
+            Warning = items[1].TryParse<long>(53687091200);
+            Caution = items[2].TryParse<long>(214748364800);
         }
 
         public override string ToString() {
@@ -48,7 +48,7 @@ namespace DiskSpaceWatcher {
             source.Split(new string[] { _separator }, StringSplitOptions.RemoveEmptyEntries)
                   .Select(src => src.ToTarget())
                   .ToList()
-                  .ForEach(target => { this.Add(target.Drive, target); });
+                  .ForEach(target => { this[target.Drive] = target; });
         }
 
         public List<string> Drives {

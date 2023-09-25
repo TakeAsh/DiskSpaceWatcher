@@ -14,7 +14,7 @@ using System.Diagnostics;
 namespace DiskSpaceWatcher {
     public partial class Form1 : Form {
         static Properties.Settings _settings = Properties.Settings.Default;
-        private const long _gigaBytes = 1024 * 1024 * 1024;
+        private Thresholds _thresholds = _settings.Thresholds.ToThresholds();
         private const int _maxIcons = 8;
         private Targets _targets = null;
         private List<Indicator> _indicators = null;
@@ -49,11 +49,13 @@ namespace DiskSpaceWatcher {
                     listboxDrives.SetItemChecked(i, targetDrives.Contains(driveNames[i]));
                 }
             }
-            var thresholds = _settings.Thresholds.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries)
-                .ToArray();
-            comboBoxWarning.Items.AddRange(thresholds);
+            comboBoxWarning.ValueMember = "Value";
+            comboBoxWarning.DisplayMember = "Label";
+            comboBoxWarning.DataSource = _thresholds.ToList();
             comboBoxWarning.SelectedIndex = 0;
-            comboBoxCaution.Items.AddRange(thresholds);
+            comboBoxCaution.ValueMember = "Value";
+            comboBoxCaution.DisplayMember = "Label";
+            comboBoxCaution.DataSource = _thresholds.ToList();
             comboBoxCaution.SelectedIndex = 0;
         }
 
@@ -71,7 +73,7 @@ namespace DiskSpaceWatcher {
                 var drive = drives.FirstOrDefault(d => d.Name.StartsWith(indicator.Drive));
                 indicator.Space =
                     drive == null || !drive.IsReady ? -1 :
-                    (int)(drive.AvailableFreeSpace / _gigaBytes);
+                    drive.AvailableFreeSpace;
             });
         }
 
@@ -91,16 +93,16 @@ namespace DiskSpaceWatcher {
             var drive = listboxDrives.SelectedItem as string;
             if (!_targets.ContainsKey(drive)) { return; }
             var target = _targets[drive];
-            comboBoxWarning.SelectedItem = target.Warning.ToString();
-            comboBoxCaution.SelectedItem = target.Caution.ToString();
+            comboBoxWarning.SelectedItem = _thresholds[target.Warning];
+            comboBoxCaution.SelectedItem = _thresholds[target.Caution];
         }
 
         private void listboxDrives_ItemCheck(object sender, ItemCheckEventArgs e) {
             var listbox = sender as CheckedListBox;
             var drive = listboxDrives.Items[e.Index] as string;
             if (e.NewValue == CheckState.Checked && !_targets.ContainsKey(drive)) {
-                var warning = (comboBoxWarning.SelectedItem as string).TryParse<int>();
-                var caution = (comboBoxCaution.SelectedItem as string).TryParse<int>();
+                var warning = (long)comboBoxWarning.SelectedValue;
+                var caution = (long)comboBoxCaution.SelectedValue;
                 var target = new Target(drive, warning, caution);
                 _targets[drive] = target;
                 _indicators.Add(new Indicator(target, contextMenu));
@@ -126,7 +128,7 @@ namespace DiskSpaceWatcher {
             var drive = listboxDrives.SelectedItem as string;
             if (drive == null || !_targets.ContainsKey(drive)) { return; }
             var target = _targets[drive];
-            target.Warning = (combobox.SelectedItem as string).TryParse<int>();
+            target.Warning = (long)combobox.SelectedValue;
             OnUpdateSetting();
         }
 
@@ -135,7 +137,7 @@ namespace DiskSpaceWatcher {
             var drive = listboxDrives.SelectedItem as string;
             if (drive == null || !_targets.ContainsKey(drive)) { return; }
             var target = _targets[drive];
-            target.Caution = (combobox.SelectedItem as string).TryParse<int>();
+            target.Caution = (long)combobox.SelectedValue;
             OnUpdateSetting();
         }
 

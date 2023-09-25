@@ -5,7 +5,7 @@ namespace DiskSpaceWatcher {
     public class Indicator : IDisposable {
         static Properties.Settings _settings = Properties.Settings.Default;
         private Target _target = null;
-        private int _space = 0;
+        private long _space = 0;
         private DiskStatus _status = DiskStatus.OK;
 
         public NotifyIcon Icon { get; private set; }
@@ -15,17 +15,17 @@ namespace DiskSpaceWatcher {
             set { _target.Drive = value; }
         }
 
-        public int Warning {
+        public long Warning {
             get { return _target.Warning; }
             set { _target.Warning = value; }
         }
 
-        public int Caution {
+        public long Caution {
             get { return _target.Caution; }
             set { _target.Caution = value; }
         }
 
-        public int Space {
+        public long Space {
             get { return _space; }
             set {
                 _space = value;
@@ -50,8 +50,8 @@ namespace DiskSpaceWatcher {
 
         private string StatusText {
             get {
-                var space = _space >= 0 ? _space.ToString() : "--";
-                return $"[{_status.ToDescription()}] {Drive} {space} GB";
+                var space = _space >= 0 ? Program.BytesToString(_space, 1) : "--";
+                return $"[{_status.ToDescription()}] {Drive} {space}";
             }
         }
 

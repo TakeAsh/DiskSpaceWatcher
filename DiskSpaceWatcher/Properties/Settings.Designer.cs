@@ -25,7 +25,9 @@ namespace DiskSpaceWatcher.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("50 100 200 300 400 500 600 1000 2000 3000 4000 5000")]
+        [global::System.Configuration.DefaultSettingValueAttribute("53687091200\r\n107374182400\r\n214748364800\r\n322122547200\r\n429496729600\r\n536870912000" +
+            "\r\n644245094400\r\n1099511627776\r\n2199023255552\r\n3298534883328\r\n4398046511104\r\n5497" +
+            "558138880")]
         public string Thresholds {
             get {
                 return ((string)(this["Thresholds"]));
@@ -46,7 +48,7 @@ namespace DiskSpaceWatcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:; 50; 200")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:; 53687091200; 214748364800")]
         public string Targets {
             get {
                 return ((string)(this["Targets"]));
